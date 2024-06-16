@@ -84,7 +84,7 @@ footer {
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .gallery .item {
         flex: 1 1 100%;
     }
