@@ -1,16 +1,20 @@
+/* Global styles (unchanged) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #6180F5; /* Change to desired blue color */
+    background-color: #f0f0f0;
     color: #333;
 }
 
 header {
-    background-color: #6180F5;
+    background-color: #4CAF50;
     color: white;
     padding: 20px;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 h1 {
@@ -32,7 +36,7 @@ section {
 }
 
 section h2 {
-    color: #6180F5;
+    color: #4CAF50;
 }
 
 .gallery {
@@ -57,13 +61,26 @@ section h2 {
 }
 
 footer {
-    background-color: #6180F5;
+    background-color: #4CAF50;
     color: white;
     text-align: center;
     padding: 10px 0;
     position: fixed;
     width: 100%;
     bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left,
+.header-left {
+    margin-left: 20px; /* Adjust margin as needed */
+}
+
+.footer-right,
+.header-right {
+    margin-right: 20px; /* Adjust margin as needed */
 }
 
 /* Responsive design */
