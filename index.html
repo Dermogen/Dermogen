@@ -51,7 +51,26 @@
         </section>
         <section id="rozwiazanie">
             <h2>Rozwiązanie</h2>
-            <p>Dermogen wykorzystuje zaawansowane algorytmy sztucznej inteligencji do generowania realistycznych obrazów dermatologicznych na podstawie opisów i istniejących danych. Dzięki temu dermatolodzy mogą łatwiej i szybciej diagnozować choroby skóry, a pacjenci otrzymują bardziej precyzyjne informacje na temat swojego stanu zdrowia.</p>
+            <p>Pierwszym etapem było stworzenie modelu pozwalającego reprezentować zróżnicowanie skóry. W w tym celu wykorzystany został SimCLR. Cechuje się on półnadzorowanym uczeniem opartym na kontraście.
+           <br> Do generowania wykorzystane zostały modele typu GAN. Jako wejście traktowane było zdjęcie pacjenta przed zabiegiem.  Następnie generator, składający się z kodera i dekodera, wizualizował efekt terapii. Dyskryminator starał się odróżnić zdjęcia prawdziwe i sztuczne. Wszystko było oparte na warstwach konwolucji i odwrotnej konwolucji.<br>
+Jednym z podejść była architektura umożliwiająca tworzenie obrazu na podstawie innego, Pix2Pix. Architektura ta jednak nie jest stworzona do tworzenie sekwencji. Zastosowano tu tzw. “generowanie parami”. Oznacza to, że wyjście modelu służyło jako wejście do kolejnej generacji.<br>
+Następnie, powyższe podejście zostało wzbogacone o wykorzystanie reprezentacji skóry oraz etykiety oznaczającej numer zabiegu, którego efekt należy wygenerować. W tym celu, użyto modelu CGAN. Jedyną różnicą w stosunku do poprzedniej architektury, była konkatencja wszystkich modalności (reprezentacja zdjęcia, reprezentacja skóry oraz etykieta) przed warstwą dekodera.
+
+            <div class="gallery">
+                <div class="item">
+                    <img src="data/cgan_scheme.png" alt="Zdjęcie z wynikami modeli">
+                    <p>Przybliżona architektura modelu CGAN</p>
+                </div>
+            </div>
+Ostatnią propozycją była architektura oparta o sieci rekurencyjne, SeqGAN. Dołożone zostały komórki GRU, które pozwalały uchwycić zależności między kolejnymi zdjęciami w sekwencji. Trening opierał się na uczeniu ze wzmocnieniem, gdzie nagrodą było prawdopodobieństwo powstania danej sekwencji.<br>
+Ostatecznie najlepsze rezultaty wizualne udało się uzyskać za pomocą modelu Pix2Pix z wykorzystaniem wyostrzania. Wyniki wykazywały się podobieństwem do oryginału i zawierały dużo szczegółów, a sama zmiana skórna była dobrze widoczna.
+            <div class="gallery">
+                <div class="item">
+                    <img src="data/efekt.png" alt="Zdjęcie z wynikami modeli">
+                    <p>Najlepszy osiągnięty rezultat (model Pix2Pix z wyostrzaniem)</p>
+                </div>
+            </div>
+</p>
         </section>
         <section id="walidacja">
             <h2>Walidacja</h2>
