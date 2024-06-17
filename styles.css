@@ -83,6 +83,22 @@ footer {
     margin-right: 20px; /* Adjust margin as needed */
 }
 
+@media (min-width: 1024px) {
+    .download-button {
+        display: block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 1.5vw;
+        color: #000000;
+        background-color: #ffffff;
+        border: 1px solid;
+        border-color: #000000;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+}
+
 /* Responsive design */
 @media (max-width: 480px) {
     .gallery .item {
